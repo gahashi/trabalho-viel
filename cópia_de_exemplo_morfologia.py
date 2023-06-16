@@ -19,27 +19,34 @@ Professor Felipe Viel
 """
 
 
-
+#importes de bibliotecas
 #from https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_imgproc/py_morphological_ops/py_morphological_ops.html
-import cv2
-import numpy as np
+import cv2 #importe de biblioteca
+import numpy as np #importe de biblioteca
 #caso for usar o Google Colab com a OpenCV, usar a lib abaixo
-from google.colab.patches import cv2_imshow
+from google.colab.patches import cv2_imshow #importe funcao que exibe imagens no google colab
 
-img = cv2.imread('j.png',0)
+###############################################################
+
+#definicao da imagem
+
+img = cv2.imread('j.png',0) #usando a biblioteca cv2 esse codigo carrega uma imagem original em cinza 
+# Carrega as imagens com ruído e furos em escala de cinza
 img_opening = cv2.imread('j_ruido.png',0)
 img_closing = cv2.imread('j_furos.png',0)
-altura, largura = img.shape
-kernel = np.ones((5,5),np.uint8)
-print(kernel)
+altura, largura = img.shape #puxando o tamanho daa imagem escolhida
+kernel = np.ones((5,5),np.uint8)# definindo o kernel 5x5
+print(kernel) #imprimir kernel
 
-erosion = cv2.erode(img,kernel,iterations = 2)
-dilation = cv2.dilate(img,kernel,iterations = 2)
+erosion = cv2.erode(img,kernel,iterations = 2)# Aplica a operação de erosão na imagem original usando o kernel definido
+dilation = cv2.dilate(img,kernel,iterations = 2)## Aplica a operação de dilatação na imagem original usando o kernel definido
 
-gradient = cv2.morphologyEx(img, cv2.MORPH_GRADIENT, kernel)
-opening = cv2.morphologyEx(img_opening, cv2.MORPH_OPEN, kernel)
-closing = cv2.morphologyEx(img_closing, cv2.MORPH_CLOSE, kernel)
 
+gradient = cv2.morphologyEx(img, cv2.MORPH_GRADIENT, kernel)# Aplica a operação de gradiente morfológico na imagem original usando o kernel definido
+opening = cv2.morphologyEx(img_opening, cv2.MORPH_OPEN, kernel)# Aplica a operação de abertura na imagem com ruído usando o kernel definido
+closing = cv2.morphologyEx(img_closing, cv2.MORPH_CLOSE, kernel)# Aplica a operação de fechamento na imagem com furos usando o kernel definido
+
+###formato alternativo
 '''
 #Caso usa com Python no próprio computador
 cv2.imshow('in', img)
@@ -50,9 +57,11 @@ cv2.imshow('closing_out', closing)
 cv2.imshow('gradient_out', gradient)
 '''
 #Caso use o Google Colab
-cv2_imshow(img)
-cv2_imshow(erosion)
-cv2_imshow(dilation)
-cv2_imshow(opening)
-cv2_imshow(closing)
-cv2_imshow(gradient)
+cv2_imshow(img)# Exibe a imagem original
+cv2_imshow(erosion)# Exibe a imagem após a operação de erosão
+cv2_imshow(dilation)# Exibe a imagem após a operação de dilatação
+cv2_imshow(opening)# Exibe a imagem após a operação de abertura
+cv2_imshow(closing)# Exibe a imagem após a operação de fechamento
+cv2_imshow(gradient)# Exibe a imagem após a operação de gradiente morfológico
+
+
