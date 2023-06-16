@@ -1,4 +1,3 @@
-<font color="red">Este texto é vermelho.</font>
 
 # trabalho-viel O código apresentado carrega imagens em escala de cinza e aplica operações de morfologia matemática nas imagens. Ele usa a biblioteca OpenCV (cv2) para processamento de imagens e a biblioteca NumPy (np) para manipulação de arrays multidimensionais. Aqui está uma descrição do código sem usar comentários numerados:
 
