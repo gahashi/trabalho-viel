@@ -24,3 +24,4 @@ O código pode ser utilizado para realizar operações de morfologia matemática
 É importante mencionar que o trecho de código comentado com ''' ... ''' contém a exibição das imagens em uma aplicação local, não sendo necessário no contexto do Google Colab.
 
 Lembre-se de ter as bibliotecas OpenCV e NumPy instaladas para executar o código corretamente e garantir que as imagens estejam presentes no local especificado.
+https://github.com/gahashi/trabalho-viel/edit/main/README.md
